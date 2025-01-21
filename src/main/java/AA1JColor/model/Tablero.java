@@ -12,7 +12,7 @@ public class Tablero {
     private static final char LIBRE = 'L';
     private static final char SALIDA = 'S';
     private static final char VIDA_EXTRA = 'V';
-    private static final char BOMBA = 'B';
+    private static final char BOMBA = 'X';
     private static final int vidasExtra = 2;
 
     private final char[][] tablero;
@@ -169,17 +169,13 @@ public class Tablero {
 
         for(int i=0; i<size; i++){
             for(int j=0; j<size; j++){
-               /* switch (tablero[i][j]){
-                    case jugador: System.out.print(colorize(tablero[i][j] + " "), YELLOW_TEXT(), MAGENTA_BACK()); break;
-                    case SALIDA: System.out.print(colorize(tablero[i][j] + " "), WHITE_TEXT(), BRIGHT_GREEN_BACK()); break;
-                    case VIDA_EXTRA: System.out.print(colorize(tablero[i][j] + " "), WHITE_TEXT(), BRIGHT_MAGENTA_TEXT()); break;
-                    case BOMBA:  System.out.print(colorize(tablero[i][j] + " "), BLACK_TEXT(), BRIGHT_BLACK_BACK()); break;
-                    default: System.out.print(LIBRE + " ");
-                }*/
-                if(tablero[i][j] == jugador || tablero[i][j] == SALIDA || tablero[i][j] == VIDA_EXTRA || tablero[i][j] == BOMBA){
-                    System.out.print(colorize(tablero[i][j] + " ", WHITE_TEXT(), BRIGHT_MAGENTA_TEXT()));
-                } else {
-                    System.out.print(LIBRE + " ");
+                switch (tablero[i][j]){
+                    case 'B': System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), YELLOW_BACK())); break;
+                    case 'H': System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), BLUE_BACK())); break;
+                    case SALIDA: System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), BRIGHT_GREEN_BACK())); break;
+                    case VIDA_EXTRA: System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), BRIGHT_MAGENTA_BACK())); break;
+                    case BOMBA:  System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), BRIGHT_BLACK_BACK())); break;
+                    default: System.out.print(colorize(" " + LIBRE + " ", BLACK_TEXT(), WHITE_BACK()));
                 }
             }
             System.out.println();
@@ -189,11 +185,19 @@ public class Tablero {
     public void mostrarTableroNormal(){
         for(int i=0; i<size; i++){
             for(int j=0; j<size; j++){
-                System.out.print(tablero[i][j] + " ");
+                switch (tablero[i][j]){
+                    case 'B': System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), YELLOW_BACK())); break;
+                    case 'H': System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), BLUE_BACK())); break;
+                    case 'K': System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), RED_BACK())); break;
+                    case 'F': System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), RED_BACK())); break;
+                    case SALIDA: System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), BRIGHT_GREEN_BACK())); break;
+                    case VIDA_EXTRA: System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), BRIGHT_MAGENTA_BACK())); break;
+                    case BOMBA:  System.out.print(colorize(" " + tablero[i][j] + " ", BLACK_TEXT(), BRIGHT_BLACK_BACK())); break;
+                    default: System.out.print(colorize(" " + LIBRE + " ", BLACK_TEXT(), WHITE_BACK()));
+                }
             }
             System.out.println();
         }
-
     }
 
     public Posicion encontrarJugador(){

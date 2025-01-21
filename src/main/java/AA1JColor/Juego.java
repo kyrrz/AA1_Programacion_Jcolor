@@ -23,8 +23,7 @@ public class Juego {
 
 
     public Juego(){
-
-     /*   jugador1 = new model.Jugador(BART,3, tablero1);
+        /*   jugador1 = new model.Jugador(BART,3, tablero1);
         jugador2 = new model.Jugador(HOMER, 3, tablero2);*/
 
     }
@@ -57,7 +56,8 @@ public class Juego {
 
         while (!acabado){
             //Turno de BART
-
+            System.out.println();
+            System.out.println();
             System.out.println("Turno de BART");
             if(jugador1.isWallhack()){
                 tablero1.mostrarTableroNormal();
@@ -73,9 +73,12 @@ public class Juego {
                     System.out.println("GANADOR: HOMER!!");
                 }
                 acabado = true;
+                break;
             }
 
             //Turno de HOMER
+            System.out.println();
+            System.out.println();
             System.out.println("Turno de HOMER");
             if(jugador2.isWallhack()){
                 tablero2.mostrarTableroNormal();
